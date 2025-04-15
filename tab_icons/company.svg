@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
+  <!-- 公司介绍图标 -->
+  <path d="M8 42h32V18H8v24z" fill="none" stroke="#999999" stroke-width="2"/>
+  <path d="M36 18v-8h6v8" fill="none" stroke="#999999" stroke-width="2"/>
+  <rect x="14" y="24" width="6" height="6" fill="none" stroke="#999999" stroke-width="1.5"/>
+  <rect x="28" y="24" width="6" height="6" fill="none" stroke="#999999" stroke-width="1.5"/>
+  <rect x="14" y="34" width="6" height="6" fill="none" stroke="#999999" stroke-width="1.5"/>
+  <rect x="28" y="34" width="6" height="6" fill="none" stroke="#999999" stroke-width="1.5"/>
+</svg> 

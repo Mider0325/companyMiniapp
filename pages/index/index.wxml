@@ -1,0 +1,85 @@
+<view class="container">
+  <!-- 轮播图 -->
+  <swiper class="banner" indicator-dots="true" autoplay="true" interval="3000" duration="500" circular="true">
+    <block wx:for="{{bannerImages}}" wx:key="*this">
+      <swiper-item>
+        <image src="{{item}}" class="banner-image" mode="aspectFill"></image>
+      </swiper-item>
+    </block>
+  </swiper>
+
+  <!-- 公司简介 -->
+  <view class="section company-intro">
+    <view class="section-title">公司简介</view>
+    <view class="intro-content">
+      <view class="intro-text">
+        {{company.name}}成立于{{company.foundYear}}年，是一家专注于蜜饯果脯生产的现代化企业。公司拥有国内外<text class="badge">国内工厂+越南工厂</text>多个生产基地，可供货芒果干{{company.capacity}}。<text class="badge">产品远销海内外</text>，<text class="badge">年销过亿</text>品牌实力源头工厂，品质放心。
+      </view>
+      <view class="more-btn" bindtap="navigateToCompany">了解更多</view>
+    </view>
+  </view>
+
+  <!-- 产品展示 -->
+  <view class="section product-display">
+    <view class="section-title">产品展示</view>
+    <view class="product-grid">
+      <block wx:for="{{products}}" wx:key="id">
+        <view class="product-item">
+          <image src="{{item.image}}" class="product-image" mode="aspectFill"></image>
+          <view class="product-info">
+            <view class="product-name">{{item.name}}</view>
+            <view class="product-desc">{{item.desc}}</view>
+          </view>
+        </view>
+      </block>
+    </view>
+    <view class="more-btn" bindtap="navigateToProducts">查看全部产品</view>
+  </view>
+
+  <!-- 优势展示 -->
+  <view class="section advantages">
+    <view class="section-title">我们的优势</view>
+    <view class="advantage-list">
+      <view class="advantage-item">
+        <view class="advantage-icon">🏭</view>
+        <view class="advantage-title">源头工厂</view>
+        <view class="advantage-desc">双工厂生产，国内工厂+越南工厂</view>
+      </view>
+      <view class="advantage-item">
+        <view class="advantage-icon">🔄</view>
+        <view class="advantage-title">OEM/ODM</view>
+        <view class="advantage-desc">支持代工生产，品牌定制</view>
+      </view>
+      <view class="advantage-item">
+        <view class="advantage-icon">📦</view>
+        <view class="advantage-title">多种包装</view>
+        <view class="advantage-desc">散装/定量装/定制包装</view>
+      </view>
+      <view class="advantage-item">
+        <view class="advantage-icon">🌏</view>
+        <view class="advantage-title">出口商检</view>
+        <view class="advantage-desc">符合国际标准，支持出口</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 联系我们 -->
+  <view class="section contact">
+    <view class="section-title">联系我们</view>
+    <view class="contact-info">
+      <view class="contact-item">
+        <text class="contact-label">销售经理：</text>
+        <text class="contact-value">温胜开 18926730588</text>
+      </view>
+      <view class="contact-item">
+        <text class="contact-label">销售经理：</text>
+        <text class="contact-value">温建中 13035818146</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 页脚 -->
+  <view class="footer">
+    <text>© 2023 广东茂名佰果园食品有限公司 版权所有</text>
+  </view>
+</view> 

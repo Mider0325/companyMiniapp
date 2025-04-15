@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
+  <!-- 产品展示图标 - 芒果主题 -->
+  <ellipse cx="24" cy="28" rx="16" ry="12" transform="rotate(-15 24 28)" fill="none" stroke="#999999" stroke-width="2"/>
+  <path d="M24 10C20 12 17 16 22 22" fill="none" stroke="#999999" stroke-width="2"/>
+  <path d="M18 20C24 28 28 32 34 28" fill="none" stroke="#999999" stroke-width="1.5"/>
+</svg> 

@@ -1,0 +1,194 @@
+/* 整体容器 */
+.container {
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: #f8f8f8;
+}
+
+/* 轮播图 */
+.banner {
+  width: 100%;
+  height: 400rpx;
+}
+
+.banner-image {
+  width: 100%;
+  height: 100%;
+}
+
+/* 通用section样式 */
+.section {
+  margin: 30rpx 20rpx;
+  background-color: #fff;
+  border-radius: 10rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+  padding: 30rpx;
+}
+
+.section-title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #4CAF50;
+  margin-bottom: 20rpx;
+  border-left: 8rpx solid #4CAF50;
+  padding-left: 20rpx;
+}
+
+/* 公司简介 */
+.intro-content {
+  font-size: 28rpx;
+  line-height: 1.8;
+  color: #333;
+}
+
+.intro-text {
+  display: inline;
+}
+
+.highlight-text {
+  color: #4CAF50;
+  font-weight: bold;
+  padding: 2rpx 0;
+  border-bottom: 2rpx solid #4CAF50;
+}
+
+.badge {
+  display: inline;
+  background-color: rgba(76, 175, 80, 0.15);
+  color: #4CAF50;
+  padding: 0 6rpx;
+  border-radius: 4rpx;
+  font-weight: bold;
+  font-size: 28rpx;
+}
+
+.billion-badge {
+  display: inline;
+  background-color: rgba(255, 152, 0, 0.15);
+  color: #FF9800;
+  padding: 0 6rpx;
+  border-radius: 4rpx;
+  font-weight: bold;
+  font-size: 28rpx;
+}
+
+.more-btn {
+  text-align: center;
+  margin-top: 20rpx;
+  background-color: #4CAF50;
+  color: white;
+  padding: 15rpx 20rpx;
+  border-radius: 30rpx;
+  font-size: 28rpx;
+  width: 200rpx;
+}
+
+/* 产品展示 */
+.product-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.product-item {
+  width: 48%;
+  margin-bottom: 20rpx;
+  background-color: #fff;
+  border-radius: 10rpx;
+  overflow: hidden;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.1);
+}
+
+.product-image {
+  width: 100%;
+  height: 200rpx;
+}
+
+.product-info {
+  padding: 15rpx;
+}
+
+.product-name {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.product-desc {
+  font-size: 24rpx;
+  color: #666;
+  margin-top: 10rpx;
+  line-height: 1.4;
+}
+
+/* 优势展示 */
+.advantages {
+  margin-bottom: 40rpx;
+}
+
+.advantage-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20rpx;
+}
+
+.advantage-item {
+  width: calc(50% - 10rpx);
+  padding: 30rpx 20rpx;
+  background-color: #f9f9f9;
+  border-radius: 10rpx;
+  text-align: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.05);
+}
+
+.advantage-icon {
+  font-size: 60rpx;
+  margin-bottom: 15rpx;
+}
+
+.advantage-title {
+  font-size: 30rpx;
+  font-weight: bold;
+  margin-bottom: 15rpx;
+  color: #4CAF50;
+}
+
+.advantage-desc {
+  font-size: 26rpx;
+  color: #666;
+  line-height: 1.5;
+  width: 100%;
+}
+
+/* 联系我们 */
+.contact-info {
+  font-size: 28rpx;
+  line-height: 1.6;
+}
+
+.contact-item {
+  margin-bottom: 15rpx;
+}
+
+.contact-label {
+  color: #666;
+}
+
+.contact-value {
+  color: #333;
+  font-weight: bold;
+}
+
+/* 页脚 */
+.footer {
+  padding: 30rpx;
+  text-align: center;
+  font-size: 24rpx;
+  color: #999;
+  background-color: #f3f3f3;
+} 

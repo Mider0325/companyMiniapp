@@ -1,0 +1,112 @@
+<view class="container">
+  <!-- 标签栏 -->
+  <scroll-view scroll-x="true" class="tabs-container">
+    <view class="tabs">
+      <block wx:for="{{tabs}}" wx:key="*this">
+        <view class="tab {{activeTab === index ? 'active' : ''}}" bindtap="switchTab" data-index="{{index}}">
+          {{item}}
+        </view>
+      </block>
+    </view>
+  </scroll-view>
+
+  <!-- 产品列表 -->
+  <view class="products-container">
+    <block wx:if="{{filteredProducts.length > 0}}">
+      <view class="products-grid">
+        <block wx:for="{{filteredProducts}}" wx:key="id">
+          <view class="product-card" bindtap="showProductDetail" data-id="{{item.id}}">
+            <image src="{{item.image}}" class="product-image" mode="aspectFill"></image>
+            <view class="product-info">
+              <view class="product-name">{{item.name}}</view>
+              <view class="product-brief">{{item.desc.substring(0, 30)}}...</view>
+            </view>
+          </view>
+        </block>
+      </view>
+    </block>
+    <block wx:else>
+      <view class="empty-tip">暂无相关产品</view>
+    </block>
+  </view>
+
+  <!-- 产品详情弹窗 -->
+  <view class="product-detail-modal {{showDetailModal ? 'show' : ''}}" wx:if="{{currentProduct}}">
+    <view class="modal-mask" bindtap="closeProductDetail"></view>
+    <view class="modal-content">
+      <view class="modal-header">
+        <view class="modal-title">{{currentProduct.name}}</view>
+        <view class="modal-close" bindtap="closeProductDetail">×</view>
+      </view>
+      
+      <scroll-view scroll-y="true" class="modal-body">
+        <!-- 产品图片 -->
+        <swiper class="product-images" indicator-dots="true" autoplay="true" interval="3000" duration="500" circular="true">
+          <block wx:for="{{currentProduct.images}}" wx:key="*this">
+            <swiper-item>
+              <image src="{{item}}" class="detail-image" mode="aspectFit" bindtap="previewImage" data-src="{{item}}"></image>
+            </swiper-item>
+          </block>
+        </swiper>
+        
+        <!-- 产品描述 -->
+        <view class="detail-section">
+          <view class="detail-title">产品描述</view>
+          <view class="detail-desc">{{currentProduct.desc}}</view>
+        </view>
+        
+        <!-- 产品特点 -->
+        <view class="detail-section">
+          <view class="detail-title">产品特点</view>
+          <view class="tags">
+            <block wx:for="{{currentProduct.features}}" wx:key="*this">
+              <view class="tag">{{item}}</view>
+            </block>
+          </view>
+        </view>
+        
+        <!-- 包装方式 -->
+        <view class="detail-section">
+          <view class="detail-title">包装方式</view>
+          <view class="tags">
+            <block wx:for="{{currentProduct.packaging}}" wx:key="*this">
+              <view class="tag">{{item}}</view>
+            </block>
+          </view>
+        </view>
+        
+        <!-- 定制服务 -->
+        <view class="detail-section">
+          <view class="detail-title">定制服务</view>
+          <view class="service-items">
+            <view class="service-item">
+              <view class="service-icon">🏭</view>
+              <view class="service-text">OEM/ODM</view>
+            </view>
+            <view class="service-item">
+              <view class="service-icon">📦</view>
+              <view class="service-text">定制包装</view>
+            </view>
+            <view class="service-item">
+              <view class="service-icon">🔍</view>
+              <view class="service-text">出口商检</view>
+            </view>
+            <view class="service-item">
+              <view class="service-icon">⚖️</view>
+              <view class="service-text">散装/定量</view>
+            </view>
+          </view>
+        </view>
+        
+        <!-- 联系方式 -->
+        <view class="detail-section contact-section">
+          <view class="contact-title">联系我们了解更多</view>
+          <view class="contact-info">
+            <view>温胜开：18926730588</view>
+            <view>温建中：13035818146</view>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+</view> 

@@ -1,0 +1,81 @@
+<view class="container">
+  <!-- 公司介绍 -->
+  <view class="section company-intro">
+    <view class="section-title">关于我们</view>
+    <view class="company-detail">
+      <view class="company-logo">
+        <image src="/images/logo.jpg" mode="aspectFit"></image>
+      </view>
+      <view class="company-info">
+        <view class="company-name">{{company.name}}</view>
+        <view class="company-found">成立于 {{company.foundYear}} 年</view>
+        <view class="company-desc">
+          广东茂名佰果园食品有限公司成立于2015年，是一家专注于蜜饯果脯生产的现代化企业。公司主营芒果干、菠萝干、木瓜干、百香果干、菠萝芯。公司现有多个生产基地，可供货芒果干60吨/天。源头工厂，品质放心，佰果园食品期待与您共商合作，共创未来。
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 工厂展示 -->
+  <view class="section factory-display">
+    <view class="section-title">工厂展示</view>
+    <view class="factory-desc">国内工厂+越南工厂双线生产，确保稳定供应</view>
+    <view class="factory-images">
+      <block wx:for="{{factoryImages}}" wx:key="*this">
+        <image src="{{item}}" class="factory-image" mode="aspectFill" bindtap="previewImage" data-src="{{item}}"></image>
+      </block>
+    </view>
+  </view>
+
+  <!-- 优势 -->
+  <view class="section advantages">
+    <view class="section-title">我们的优势</view>
+    <view class="advantage-list">
+      <block wx:for="{{advantages}}" wx:key="title">
+        <view class="advantage-item">
+          <view class="advantage-icon">{{item.icon}}</view>
+          <view class="advantage-title">{{item.title}}</view>
+          <view class="advantage-desc">{{item.desc}}</view>
+        </view>
+      </block>
+    </view>
+  </view>
+
+  <!-- 认证 -->
+  <view class="section certifications">
+    <view class="section-title">资质认证</view>
+    <view class="cert-list">
+      <block wx:for="{{certifications}}" wx:key="name">
+        <view class="cert-item">
+          <view class="cert-icon">{{item.icon}}</view>
+          <view class="cert-name">{{item.name}}</view>
+          <view class="cert-desc">{{item.desc}}</view>
+        </view>
+      </block>
+    </view>
+  </view>
+
+  <!-- 联系我们 -->
+  <view class="section contact">
+    <view class="section-title">联系我们</view>
+    <view class="contact-list">
+      <view class="contact-item">
+        <view class="contact-label">销售经理：</view>
+        <view class="contact-value">温胜开 18926730588</view>
+      </view>
+      <view class="contact-item">
+        <view class="contact-label">销售经理：</view>
+        <view class="contact-value">温建中 13035818146</view>
+      </view>
+      <view class="contact-item">
+        <view class="contact-label">地址：</view>
+        <view class="contact-value">广东省茂名市电白区水东镇工业园区</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 页脚 -->
+  <view class="footer">
+    <text>© 2023 广东茂名佰果园食品有限公司 版权所有</text>
+  </view>
+</view> 

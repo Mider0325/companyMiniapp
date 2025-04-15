@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>SVG转PNG工具</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background: #f5f5f5;
+            color: #333;
+        }
+        h1 {
+            color: #4CAF50;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .icon-row {
+            display: flex;
+            margin-bottom: 20px;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .icon-preview {
+            width: 100px;
+            text-align: center;
+        }
+        .icon-controls {
+            flex: 1;
+            padding-left: 20px;
+        }
+        button {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        textarea {
+            width: 100%;
+            height: 100px;
+            margin-bottom: 10px;
+            font-family: monospace;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        canvas {
+            border: 1px solid #ddd;
+            background-color: white;
+        }
+        .instructions {
+            background: #e8f5e9;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>佰果园小程序Tab图标转换器</h1>
+        
+        <div class="instructions">
+            <p>这个工具可以将SVG图标转换为PNG格式，用于微信小程序的底部导航栏。</p>
+            <ol>
+                <li>每个图标区域都有SVG源码输入框</li>
+                <li>点击"渲染SVG"按钮将在左侧预览图标</li>
+                <li>点击"下载PNG"按钮保存32x32像素的PNG图片</li>
+                <li>下载的图片可直接用于小程序的tabBar</li>
+            </ol>
+        </div>
+
+        <!-- 首页图标（常规） -->
+        <div class="icon-row">
+            <div class="icon-preview">
+                <canvas id="homeCanvas" width="64" height="64"></canvas>
+                <div>首页图标</div>
+            </div>
+            <div class="icon-controls">
+                <textarea id="homeSvg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
+  <!-- 首页图标 -->
+  <path d="M24 4L4 22h6v20h28V22h6L24 4zm-6 26v-8h12v8h-12z" fill="none" stroke="#999999" stroke-width="2"/>
+</svg></textarea>
+                <div>
+                    <button onclick="renderSvg('homeSvg', 'homeCanvas')">渲染SVG</button>
+                    <button onclick="downloadPng('homeCanvas', 'home.png')">下载PNG</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 首页图标（激活） -->
+        <div class="icon-row">
+            <div class="icon-preview">
+                <canvas id="homeActiveCanvas" width="64" height="64"></canvas>
+                <div>首页图标（激活）</div>
+            </div>
+            <div class="icon-controls">
+                <textarea id="homeActiveSvg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
+  <!-- 首页激活图标 -->
+  <path d="M24 4L4 22h6v20h28V22h6L24 4zm-6 26v-8h12v8h-12z" fill="none" stroke="#4CAF50" stroke-width="2"/>
+  <path d="M24 7L8 22h4v18h24V22h4L24 7z" fill="#4CAF50" fill-opacity="0.3"/>
+</svg></textarea>
+                <div>
+                    <button onclick="renderSvg('homeActiveSvg', 'homeActiveCanvas')">渲染SVG</button>
+                    <button onclick="downloadPng('homeActiveCanvas', 'home-active.png')">下载PNG</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 公司图标（常规） -->
+        <div class="icon-row">
+            <div class="icon-preview">
+                <canvas id="companyCanvas" width="64" height="64"></canvas>
+                <div>公司图标</div>
+            </div>
+            <div class="icon-controls">
+                <textarea id="companySvg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
+  <!-- 公司介绍图标 -->
+  <path d="M8 42h32V18H8v24z" fill="none" stroke="#999999" stroke-width="2"/>
+  <path d="M36 18v-8h6v8" fill="none" stroke="#999999" stroke-width="2"/>
+  <rect x="14" y="24" width="6" height="6" fill="none" stroke="#999999" stroke-width="1.5"/>
+  <rect x="28" y="24" width="6" height="6" fill="none" stroke="#999999" stroke-width="1.5"/>
+  <rect x="14" y="34" width="6" height="6" fill="none" stroke="#999999" stroke-width="1.5"/>
+  <rect x="28" y="34" width="6" height="6" fill="none" stroke="#999999" stroke-width="1.5"/>
+</svg></textarea>
+                <div>
+                    <button onclick="renderSvg('companySvg', 'companyCanvas')">渲染SVG</button>
+                    <button onclick="downloadPng('companyCanvas', 'company.png')">下载PNG</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 公司图标（激活） -->
+        <div class="icon-row">
+            <div class="icon-preview">
+                <canvas id="companyActiveCanvas" width="64" height="64"></canvas>
+                <div>公司图标（激活）</div>
+            </div>
+            <div class="icon-controls">
+                <textarea id="companyActiveSvg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
+  <!-- 公司介绍激活图标 -->
+  <path d="M8 42h32V18H8v24z" fill="#4CAF50" fill-opacity="0.3" stroke="#4CAF50" stroke-width="2"/>
+  <path d="M36 18v-8h6v8" fill="none" stroke="#4CAF50" stroke-width="2"/>
+  <rect x="14" y="24" width="6" height="6" fill="none" stroke="#4CAF50" stroke-width="1.5"/>
+  <rect x="28" y="24" width="6" height="6" fill="none" stroke="#4CAF50" stroke-width="1.5"/>
+  <rect x="14" y="34" width="6" height="6" fill="none" stroke="#4CAF50" stroke-width="1.5"/>
+  <rect x="28" y="34" width="6" height="6" fill="none" stroke="#4CAF50" stroke-width="1.5"/>
+</svg></textarea>
+                <div>
+                    <button onclick="renderSvg('companyActiveSvg', 'companyActiveCanvas')">渲染SVG</button>
+                    <button onclick="downloadPng('companyActiveCanvas', 'company-active.png')">下载PNG</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 产品图标（常规） -->
+        <div class="icon-row">
+            <div class="icon-preview">
+                <canvas id="productsCanvas" width="64" height="64"></canvas>
+                <div>产品图标</div>
+            </div>
+            <div class="icon-controls">
+                <textarea id="productsSvg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
+  <!-- 产品展示图标 - 芒果主题 -->
+  <ellipse cx="24" cy="28" rx="16" ry="12" transform="rotate(-15 24 28)" fill="none" stroke="#999999" stroke-width="2"/>
+  <path d="M24 10C20 12 17 16 22 22" fill="none" stroke="#999999" stroke-width="2"/>
+  <path d="M18 20C24 28 28 32 34 28" fill="none" stroke="#999999" stroke-width="1.5"/>
+</svg></textarea>
+                <div>
+                    <button onclick="renderSvg('productsSvg', 'productsCanvas')">渲染SVG</button>
+                    <button onclick="downloadPng('productsCanvas', 'products.png')">下载PNG</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 产品图标（激活） -->
+        <div class="icon-row">
+            <div class="icon-preview">
+                <canvas id="productsActiveCanvas" width="64" height="64"></canvas>
+                <div>产品图标（激活）</div>
+            </div>
+            <div class="icon-controls">
+                <textarea id="productsActiveSvg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
+  <!-- 产品展示激活图标 - 芒果主题 -->
+  <ellipse cx="24" cy="28" rx="16" ry="12" transform="rotate(-15 24 28)" fill="#4CAF50" fill-opacity="0.3" stroke="#4CAF50" stroke-width="2"/>
+  <path d="M24 10C20 12 17 16 22 22" fill="none" stroke="#4CAF50" stroke-width="2"/>
+  <path d="M18 20C24 28 28 32 34 28" fill="none" stroke="#4CAF50" stroke-width="1.5"/>
+</svg></textarea>
+                <div>
+                    <button onclick="renderSvg('productsActiveSvg', 'productsActiveCanvas')">渲染SVG</button>
+                    <button onclick="downloadPng('productsActiveCanvas', 'products-active.png')">下载PNG</button>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-top: 20px;">
+            <button onclick="renderAllSvgs()">渲染所有SVG</button>
+            <button onclick="downloadAllPngs()">下载所有PNG</button>
+        </div>
+    </div>
+
+    <script>
+        // 渲染SVG为Canvas
+        function renderSvg(svgId, canvasId) {
+            const svgCode = document.getElementById(svgId).value;
+            const canvas = document.getElementById(canvasId);
+            const ctx = canvas.getContext('2d');
+            
+            // 清空画布
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // 创建SVG图像
+            const img = new Image();
+            img.onload = function() {
+                ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+            };
+            
+            // 转换SVG为Data URL
+            const blob = new Blob([svgCode], {type: 'image/svg+xml'});
+            const url = URL.createObjectURL(blob);
+            img.src = url;
+        }
+        
+        // 下载PNG图像
+        function downloadPng(canvasId, filename) {
+            const canvas = document.getElementById(canvasId);
+            
+            // 创建临时Canvas，大小为32x32像素
+            const tempCanvas = document.createElement('canvas');
+            tempCanvas.width = 32;
+            tempCanvas.height = 32;
+            const tempCtx = tempCanvas.getContext('2d');
+            
+            // 绘制调整大小后的图像
+            tempCtx.drawImage(canvas, 0, 0, canvas.width, canvas.height, 0, 0, 32, 32);
+            
+            // 创建下载链接
+            const link = document.createElement('a');
+            link.download = filename;
+            link.href = tempCanvas.toDataURL('image/png');
+            link.click();
+        }
+        
+        // 渲染所有SVG
+        function renderAllSvgs() {
+            renderSvg('homeSvg', 'homeCanvas');
+            renderSvg('homeActiveSvg', 'homeActiveCanvas');
+            renderSvg('companySvg', 'companyCanvas');
+            renderSvg('companyActiveSvg', 'companyActiveCanvas');
+            renderSvg('productsSvg', 'productsCanvas');
+            renderSvg('productsActiveSvg', 'productsActiveCanvas');
+        }
+        
+        // 下载所有PNG
+        function downloadAllPngs() {
+            downloadPng('homeCanvas', 'home.png');
+            downloadPng('homeActiveCanvas', 'home-active.png');
+            downloadPng('companyCanvas', 'company.png');
+            downloadPng('companyActiveCanvas', 'company-active.png');
+            downloadPng('productsCanvas', 'products.png');
+            downloadPng('productsActiveCanvas', 'products-active.png');
+        }
+        
+        // 页面加载完成后自动渲染所有SVG
+        window.onload = renderAllSvgs;
+    </script>
+</body>
+</html> 

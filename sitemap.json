@@ -1,0 +1,7 @@
+{
+  "desc": "关于佰果园微信小程序的sitemap配置",
+  "rules": [{
+    "action": "allow",
+    "page": "*"
+  }]
+} 
