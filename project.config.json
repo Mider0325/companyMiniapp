@@ -35,7 +35,7 @@
     "packNpmRelationList": [],
     "minifyWXSS": true
   },
-  "appid": "wxc0e00b0a6be38ac6",
+  "appid": "wxab066ee74aaf238c",
   "projectname": "baiguoyuan-miniprogram",
   "libVersion": "2.20.1",
   "condition": {
@@ -70,5 +70,8 @@
   "editorSetting": {
     "tabIndent": "insertSpaces",
     "tabSize": 2
-  }
+  },
+  "cloudfunctionRoot": "cloudfunctions/",
+  "cloud": true,
+  "simulatorPluginLibVersion": {}
 }

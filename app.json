@@ -7,7 +7,7 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#4CAF50",
-    "navigationBarTitleText": "广东茂名佰果园食品",
+    "navigationBarTitleText": "佰果园食品",
     "navigationBarTextStyle": "white"
   },
   "tabBar": {
@@ -19,20 +19,20 @@
       {
         "pagePath": "pages/index/index",
         "text": "首页",
-        "iconPath": "images/home.png",
-        "selectedIconPath": "images/home.png"
+        "iconPath": "image/home.png",
+        "selectedIconPath": "image/home.png"
       },
       {
         "pagePath": "pages/company/company",
         "text": "公司介绍",
-        "iconPath": "images/company.png",
-        "selectedIconPath": "images/company.png"
+        "iconPath": "image/company.png",
+        "selectedIconPath": "image/company.png"
       },
       {
         "pagePath": "pages/products/products",
         "text": "产品展示",
-        "iconPath": "images/products.png",
-        "selectedIconPath": "images/products.png"
+        "iconPath": "image/products.png",
+        "selectedIconPath": "image/products.png"
       }
     ]
   },

@@ -1,0 +1,6 @@
+<image
+  src="{{realSrc}}"
+  mode="{{mode}}"
+  class="{{className}}"
+  style="{{style}}"
+/> 

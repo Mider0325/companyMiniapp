@@ -16,7 +16,7 @@
       <view class="products-grid">
         <block wx:for="{{filteredProducts}}" wx:key="id">
           <view class="product-card" bindtap="showProductDetail" data-id="{{item.id}}">
-            <image src="{{item.image}}" class="product-image" mode="aspectFill"></image>
+            <my-image src="{{item.image}}" class="product-image" mode="aspectFill" />
             <view class="product-info">
               <view class="product-name">{{item.name}}</view>
               <view class="product-brief">{{item.desc.substring(0, 30)}}...</view>
@@ -44,7 +44,7 @@
         <swiper class="product-images" indicator-dots="true" autoplay="true" interval="3000" duration="500" circular="true">
           <block wx:for="{{currentProduct.images}}" wx:key="*this">
             <swiper-item>
-              <image src="{{item}}" class="detail-image" mode="aspectFit" bindtap="previewImage" data-src="{{item}}"></image>
+              <my-image src="{{item}}" class="detail-image" mode="aspectFit" bindtap="previewImage" data-src="{{item}}" />
             </swiper-item>
           </block>
         </swiper>
@@ -78,7 +78,7 @@
         <!-- 定制服务 -->
         <view class="detail-section">
           <view class="detail-title">定制服务</view>
-          <view class="service-items">
+          <view class="service-items-grid">
             <view class="service-item">
               <view class="service-icon">🏭</view>
               <view class="service-text">OEM/ODM</view>
@@ -95,15 +95,6 @@
               <view class="service-icon">⚖️</view>
               <view class="service-text">散装/定量</view>
             </view>
-          </view>
-        </view>
-        
-        <!-- 联系方式 -->
-        <view class="detail-section contact-section">
-          <view class="contact-title">联系我们了解更多</view>
-          <view class="contact-info">
-            <view>温胜开：18926730588</view>
-            <view>温建中：13035818146</view>
           </view>
         </view>
       </scroll-view>

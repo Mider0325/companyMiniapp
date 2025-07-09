@@ -1,81 +1,128 @@
 <view class="container">
+  <!-- 加载中提示 -->
+  <view class="loading" wx:if="{{isLoading}}">
+    <view class="loading-spinner"></view>
+    <view class="loading-text">加载中...</view>
+  </view>
+
   <!-- 公司介绍 -->
-  <view class="section company-intro">
+  <view class="section company-intro" wx:if="{{!isLoading}}">
     <view class="section-title">关于我们</view>
     <view class="company-detail">
       <view class="company-logo">
-        <image src="/images/logo.jpg" mode="aspectFit"></image>
+        <my-image src="/image/logo.png" mode="aspectFit" />
       </view>
       <view class="company-info">
         <view class="company-name">{{company.name}}</view>
         <view class="company-found">成立于 {{company.foundYear}} 年</view>
         <view class="company-desc">
-          广东茂名佰果园食品有限公司成立于2015年，是一家专注于蜜饯果脯生产的现代化企业。公司主营芒果干、菠萝干、木瓜干、百香果干、菠萝芯。公司现有多个生产基地，可供货芒果干60吨/天。源头工厂，品质放心，佰果园食品期待与您共商合作，共创未来。
+          {{companyDesc}}
         </view>
       </view>
     </view>
   </view>
 
   <!-- 工厂展示 -->
-  <view class="section factory-display">
+  <view class="section factory-display" wx:if="{{!isLoading && factoryImages.length > 0}}">
     <view class="section-title">工厂展示</view>
-    <view class="factory-desc">国内工厂+越南工厂双线生产，确保稳定供应</view>
-    <view class="factory-images">
-      <block wx:for="{{factoryImages}}" wx:key="*this">
-        <image src="{{item}}" class="factory-image" mode="aspectFill" bindtap="previewImage" data-src="{{item}}"></image>
-      </block>
+    <view class="factory-desc">国内工厂 + 越南工厂多线生产，确保稳定供应</view>
+    <view class="factory-swiper-wrapper">
+      <swiper class="factory-swiper" indicator-dots="true" autoplay="true" interval="3000" duration="500" circular="true">
+        <block wx:for="{{factoryImages}}" wx:key="*this">
+          <swiper-item>
+            <my-image src="{{item}}" class="factory-image" mode="aspectFill" bindtap="previewImage" data-src="{{item}}" />
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+  </view>
+
+  <!-- 工厂介绍模块 -->
+  <view class="section factory-intro" wx:if="{{!isLoading}}">
+    <view class="section-title">工厂介绍</view>
+    <view class="factory-intro-block">
+      <view class="factory-origin">
+        <view class="factory-origin-title">国内生产基地 -- 广东·茂名</view>
+        <view class="factory-origin-adv">
+          <text class="origin-icon">📍</text>
+          <text class="origin-adv-desc">国内工厂位于广东茂名，毗邻<text class="origin-key">菠萝的海 · 徐闻</text>和<text class="origin-key">中国荔乡 · 岭南-高州</text>。当地水果资源丰富，原料储备充足。</text>
+        </view>
+        <view class="factory-origin-adv">
+          <text class="origin-icon">🏭</text>
+          <text class="origin-adv-desc">依托珠三角成熟的农产品加工集群，搭配湛江港、茂名港等海陆运输枢纽，实现从田间采摘到工厂加工"6小时新鲜直达"，确保原料鲜活品质。</text>
+        </view>
+      </view>
+      <view class="factory-origin">
+        <view class="factory-origin-title">海外工厂生产基地 - 越南（新安 & 高岭）</view>
+        <view class="factory-origin-adv">
+          <text class="origin-icon">📍</text>
+          <text class="origin-adv-desc">工厂位于越南南部新安、高岭地区，毗邻柬埔寨，地处热带季风气候带，年均日照超2500小时，雨量充沛，是<text class="origin-key">全球顶尖芒果核心产区</text>。</text>
+        </view>
+        <view class="factory-origin-adv">
+          <text class="origin-icon">🏭</text>
+          <text class="origin-adv-desc">深度嵌入东南亚水果供应链，与当地千亩果园建立直采合作，配合胡志明市国际港口物流网络，原料当日采摘、当日processing，成品72小时内可发往全球主要市场。</text>
+        </view>
+      </view>
     </view>
   </view>
 
   <!-- 优势 -->
-  <view class="section advantages">
+  <view class="section advantages" wx:if="{{!isLoading && advantages.length > 0}}">
     <view class="section-title">我们的优势</view>
     <view class="advantage-list">
       <block wx:for="{{advantages}}" wx:key="title">
         <view class="advantage-item">
-          <view class="advantage-icon">{{item.icon}}</view>
-          <view class="advantage-title">{{item.title}}</view>
-          <view class="advantage-desc">{{item.desc}}</view>
+          <view>
+            <view class="advantage-icon">{{item.icon}}</view>
+            <view class="advantage-title">{{item.title}}</view>
+            <view class="advantage-desc">{{item.desc}}</view>
+          </view>
         </view>
       </block>
     </view>
   </view>
 
   <!-- 认证 -->
-  <view class="section certifications">
+  <view class="section certifications" wx:if="{{false}}">
     <view class="section-title">资质认证</view>
     <view class="cert-list">
       <block wx:for="{{certifications}}" wx:key="name">
         <view class="cert-item">
-          <view class="cert-icon">{{item.icon}}</view>
-          <view class="cert-name">{{item.name}}</view>
-          <view class="cert-desc">{{item.desc}}</view>
+          <view>
+            <view class="cert-icon">{{item.icon}}</view>
+            <view class="cert-name">{{item.name}}</view>
+            <view class="cert-desc">{{item.desc}}</view>
+          </view>
         </view>
       </block>
     </view>
   </view>
 
   <!-- 联系我们 -->
-  <view class="section contact">
+  <view class="section contact" wx:if="{{false}}">
     <view class="section-title">联系我们</view>
     <view class="contact-list">
-      <view class="contact-item">
-        <view class="contact-label">销售经理：</view>
-        <view class="contact-value">温胜开 18926730588</view>
+     <view class="contact-item">
+        <text class="contact-label">董事长：</text>
+        <text class="contact-value">温总 18926730588</text>
       </view>
       <view class="contact-item">
-        <view class="contact-label">销售经理：</view>
-        <view class="contact-value">温建中 13035818146</view>
+        <text class="contact-label">销售经理：</text>
+        <text class="contact-value">温经理 13035818146</text>
       </view>
       <view class="contact-item">
-        <view class="contact-label">地址：</view>
+        <view class="contact-label">国内地址：</view>
         <view class="contact-value">广东省茂名市电白区水东镇工业园区</view>
+      </view>
+      <view class="contact-item">
+        <view class="contact-label">越南地址：</view>
+        <view class="contact-value">越南隆安省新安市工业园区</view>
       </view>
     </view>
   </view>
 
   <!-- 页脚 -->
-  <view class="footer">
-    <text>© 2023 广东茂名佰果园食品有限公司 版权所有</text>
+  <view class="footer" wx:if="{{!isLoading}}">
+    <text>© 2025 广东茂名佰果园食品有限公司 版权所有</text>
   </view>
 </view> 

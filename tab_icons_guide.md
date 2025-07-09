@@ -92,20 +92,20 @@
     {
       "pagePath": "pages/index/index",
       "text": "首页",
-      "iconPath": "images/home.png",
-      "selectedIconPath": "images/home-active.png"
+      "iconPath": "image/home.png",
+      "selectedIconPath": "image/home-active.png"
     },
     {
       "pagePath": "pages/company/company",
       "text": "公司介绍",
-      "iconPath": "images/company.png",
-      "selectedIconPath": "images/company-active.png"
+      "iconPath": "image/company.png",
+      "selectedIconPath": "image/company-active.png"
     },
     {
       "pagePath": "pages/products/products",
       "text": "产品展示",
-      "iconPath": "images/products.png",
-      "selectedIconPath": "images/products-active.png"
+      "iconPath": "image/products.png",
+      "selectedIconPath": "image/products-active.png"
     }
   ]
 }
